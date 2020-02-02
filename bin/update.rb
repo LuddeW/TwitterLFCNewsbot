@@ -27,7 +27,7 @@ doc.css("item").take(2).each do |item|
     link = item.css("link").text
 
     unless previous_links.include?(link)
-        twitter.update("#{title} #{link} #LFC #FPL")
+        twitter.update("#{title} #{link} #Liverpool #PremierLeague #YNWA")
     end
 end
 
@@ -40,6 +40,6 @@ docOne.css("item").take(2).each do |item|
     link = item.css("link").text
 
     unless previous_links.include?(link)
-        twitter.update("#{title} #{link} #LFC #FPL")
+        twitter.update("#{title} #{link} #Liverpool #PremierLeague #YNWA")
     end
 end
