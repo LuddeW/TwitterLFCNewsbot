@@ -31,8 +31,8 @@ doc.css("item").take(2).each do |item|
     end
 end
 
-lfcmedia_com = HTTParty.get("https://www.liverpoolfc.com/news/media-watch.rss")
-docOne = Nokogiri::XML(lfcmedia_com)
+liverpool_com = HTTParty.get("https://www.liverpool.com/?service=rss")
+docOne = Nokogiri::XML(liverpool_com)
 
 docOne.css("item").take(2).each do |item|
     title = item.css("title").text
