@@ -31,7 +31,7 @@ doc.css("item").take(2).each do |item|
     end
 end
 
-liverpool_com = HTTParty.get("https://www.liverpool.com/?service=rss")
+liverpool_com = HTTParty.get("https://www.liverpool.com/schedule/?service=rss")
 docOne = Nokogiri::XML(liverpool_com)
 
 docOne.css("item").take(2).each do |item|
