@@ -19,7 +19,8 @@ previous_links = latest_tweets.map do |tweet|
 end
 
 lfc_com = HTTParty.get("https://feed.rssunify.com/5e384082ad5ff/rss.xml")
-doc = Nokogiri::XML(lfc_com)
+
+doc = Nokogiri::XML(lfc_com.to_s)
 
 doc.css("item").take(5).each do |item|
     title = item.css("title").text
