@@ -18,23 +18,10 @@ previous_links = latest_tweets.map do |tweet|
     end
 end
 
-lfc_com = HTTParty.get("https://www.liverpoolfc.com/news.rss")
+lfc_com = HTTParty.get("https://feed.rssunify.com/5e384082ad5ff/rss.xml")
 doc = Nokogiri::XML(lfc_com)
 
-doc.css("item").take(2).each do |item|
-    title = item.css("title").text
-
-    link = item.css("link").text
-
-    unless previous_links.include?(link)
-        twitter.update("#{title} #{link} #Liverpool #PremierLeague #YNWA")
-    end
-end
-
-liverpool_com = HTTParty.get("https://www.liverpool.com/schedule/?service=rss")
-docOne = Nokogiri::XML(liverpool_com)
-
-docOne.css("item").take(2).each do |item|
+doc.css("item").take(5).each do |item|
     title = item.css("title").text
 
     link = item.css("link").text
